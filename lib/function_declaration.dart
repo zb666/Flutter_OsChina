@@ -33,6 +33,7 @@ void main(List args) {
   //函数对象=>
   calculator(1, 2, divider);
 
+
 }
 
 getString(name) {
