@@ -24,7 +24,7 @@ void main() {
   print(str.isEmpty);
 
   //赋值运算符号 =,??=
-
+  //双??运算符 可以代替if else
   c ??= 30; //c如果有值的话 就用自己的 不然的话就使用30作为其返回值
 
   b *= c;
@@ -71,3 +71,6 @@ Function makeAddFunc(int a){
   return (int y)=>a+y;
 }
 //M 默认参数值
+
+
+
