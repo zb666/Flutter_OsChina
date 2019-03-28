@@ -3,8 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(ListViewWidget());
 
+// flutter https://github.com/flutter/friendlychat-steps 官方链接
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -114,11 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 100,
             ),
             new Center(
-              child:new Text(
-                  'Hello Child',
-                  textDirection: TextDirection.ltr
-              )
-            )
+                child:
+                    new Text('Hello Child', textDirection: TextDirection.ltr))
 //            FlatButton  cong
           ],
         ),
@@ -155,4 +153,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
 _getIpAddress() async {
   final url = 'https://httpbin.org/ip';
+}
+
+// listview 属性  https://blog.csdn.net/hao_m582/article/details/84112278#ListView_builder_74
+class ListViewWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+          child: Text("this listviewitem widget",),
+    );
+  }
 }
