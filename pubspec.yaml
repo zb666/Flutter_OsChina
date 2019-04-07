@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   dio: ^2.1.0
   url_launcher: ^3.0.3
+  image_picker: ^0.5.0+9
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,4 +73,4 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
   assets:
-    - images/dianzhu.png
+    - assets/images/dianzhu.png

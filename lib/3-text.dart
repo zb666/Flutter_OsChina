@@ -66,8 +66,7 @@ class MyApp extends StatelessWidget {
               RaisedButton(
                 //这是一个函数
                 onPressed: () {},
-                child: Text('Raisedbutton'),
-              )
+              ),
             ],
           ),
         ),
