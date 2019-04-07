@@ -27,10 +27,12 @@ class _MyAppState extends State<MyApp> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
+        //主轴
         mainAxisAlignment:MainAxisAlignment.center,
+        //交叉轴
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-        Text('横向的布局'),
+        Text('横向的布局',textDirection: TextDirection.rtl),
         Image.network(
           //asset/images/tzd.jpg
           'https://img3.doubanio.com\/view\/celebrity\/s_ratio_celebrity\/public\/p1519794715.93.webp',
@@ -42,3 +44,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
