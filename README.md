@@ -38,9 +38,9 @@ Animation类是Flutter动画中核心的抽象类，它包含动画的当前值�
 
 ##5. Tween
 线性估值器。Flutter还封装定义了不同类型的估值器：
->* ReverseTween
+>*
 >* ColorTween
->* SizeTween
+>* SizeTweenReverseTween
 >* RectTween
 >* IntTween
 >* StepTween
