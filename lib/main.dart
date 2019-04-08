@@ -29,10 +29,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-Size _getSize(BuildContext context){
-  return MediaQuery.of(context).size;
-}
-
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
