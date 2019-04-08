@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
-void main() => runApp(ListViewWidget());
+void main() => runApp(MyApp());
 
 // flutter https://github.com/flutter/friendlychat-steps 官方链接
 class MyApp extends StatelessWidget {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'this is flutter',
+    title: 'this is flutter',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,9 +24,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: "_getSize(context).toString()"),
     );
   }
+}
+
+Size _getSize(BuildContext context){
+  return MediaQuery.of(context).size;
 }
 
 class MyHomePage extends StatefulWidget {
@@ -160,7 +164,28 @@ class ListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-          child: Text("this listviewitem widget",),
+      child: Text(
+        "this listviewitem widget",
+      ),
+    );
+  }
+}
+
+class MediaWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MediaWidgetState();
+  }
+}
+
+class _MediaWidgetState extends State<MediaWidget> {
+  @override
+  Widget build(BuildContext context) {
+//    var screenSize = MediaQuery.of(context).size;
+    return MediaQuery(
+      data: MediaQueryData.fromWindow(WidgetsBinding.instance.window),
+      child: Text('childWindowSize screenSize'),
     );
   }
 }

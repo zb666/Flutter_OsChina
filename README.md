@@ -46,3 +46,18 @@ Animation类是Flutter动画中核心的抽象类，它包含动画的当前值�
 >* StepTween
 >* ConstantTween
 
+State和BuildContext之间:
+- Flutter开发人员需要理解的:
+无状态和有状态的Widget的区别:
+
+- Context是什么?
+
+- State
+
+- Widget,Widget最终渲染出来的是什么?
+
+- initState() && disChangeDependencies()
+
+- InheritedWidget()
+
+
