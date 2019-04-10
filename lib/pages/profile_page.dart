@@ -10,6 +10,14 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    //eventBus 登录成功的全局刷新||退出登录
+    //eventBus.on<LoginEvent>().listen((event){})
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -17,9 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: Container(
         height: 150,
-        child: Center(
-
-        ),
+        child: Center(),
       ),
     );
   }

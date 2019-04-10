@@ -44,11 +44,20 @@ class _LoginWebPageState extends State<LoginWebPage> {
         //json解析->返回Map ->持久化保存 Sp持久化
 //        });
 
+      //弹出路由 并且返回refresh 通知界面刷新数据
 
+        _login();
       }
     });
 
     }
+
+  void _login() async{
+    //登录成功之后  去获取用户的数据
+    var result = Navigator.of(context).push(MaterialPageRoute(builder:((context)=>LoginWebPage())));
+    //这里需要去获取到用户的数据
+
+  }
 
   @override
   void dispose() {
