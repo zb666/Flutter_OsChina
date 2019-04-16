@@ -1,8 +1,8 @@
+
 import 'package:event_bus/event_bus.dart';
+
 EventBus eventBus = EventBus();
 
-class EventBusInfo{}
+class LoginEvent{}
 
-class EventBusLoginIn{}
-
-class EventBusLoginOut{}
+class LogoutEvent{}

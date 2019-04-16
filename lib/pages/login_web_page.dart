@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_osc_client/constants/constants.dart'
+    show AppColors, AppInfos, AppUrls;
+import 'package:flutter_osc_client/utils/data_utils.dart';
+import 'package:flutter_osc_client/utils/net_utils.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-//import 'package:flutter/Net';
+import 'package:flutter/cupertino.dart';
 
 class LoginWebPage extends StatefulWidget {
   @override
@@ -9,80 +15,90 @@ class LoginWebPage extends StatefulWidget {
 
 class _LoginWebPageState extends State<LoginWebPage> {
   FlutterWebviewPlugin _flutterWebviewPlugin = FlutterWebviewPlugin();
-
-  bool isloading = false;
-
-  //mounted 如果挂在树上 就表示在widget树上
+  bool isLoading = true;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    //这里是数据的回调
+    //监听url变化
     _flutterWebviewPlugin.onUrlChanged.listen((url) {
-      print('LoginWebPage onUrlChanged $url');
-      //看是否是挂载在widget树上 类似Android的context是否为空的判断
+      //https://www.oschina.net/action/oauth2/authorize?response_type=code&client_id=6i4Yu6IUqXnR64em0rsJ&redirect_uri=https://www.dongnaoedu.com/
+      print('LoginWebPage onUrlChanged: $url');
       if (mounted) {
         setState(() {
-          isloading = false;
+          isLoading = false;
         });
       }
-      //这里做url的监听
+//      https://www.dongnaoedu.com/?code=6hHYoH&state=
       if (url != null && url.length > 0 && url.contains('?code=')) {
         //登录成功了
-        // ignore: unnecessary_statements
+        //提取授权码code
         String code = url.split('?')[1].split('&')[0].split('=')[1];
-        Map<String, dynamic> params = Map();
-        params['client_id'] = "Appid";
-        params['client_secret'] = "Secret_Id";
-        params['code'] = "$code";
-        //解析登录成功的数据,然后获取Token
-//        NetUtils.get ("url",params).then((回调的data){
-//        print("$data");
-        //if(data!=null){
-        //} 进行打印 获取到Token
-        //json解析->返回Map ->持久化保存 Sp持久化
-//        });
-
-      //弹出路由 并且返回refresh 通知界面刷新数据
-
-        _login();
+        Map<String, dynamic> params = Map<String, dynamic>();
+        params['client_id'] = AppInfos.CLIENT_ID;
+        params['client_secret'] = AppInfos.CLIENT_SECRET;
+        params['grant_type'] = 'authorization_code';
+        params['redirect_uri'] = AppInfos.REDIRECT_URI;
+        params['code'] = '$code';
+        params['dataType'] = 'json';
+        NetUtils.get(AppUrls.OAUTH2_TOKEN, params).then((data) {
+//{"access_token":"aa105aaf-ca4f-4458-822d-1ae6a1fa33f9","refresh_token":"daae8b80-3ca6-4514-a8ae-acb3a82c951c","uid":2006874,"token_type":"bearer","expires_in":510070}
+          print('$data');
+          if (data != null) {
+            Map<String, dynamic> map = json.decode(data);
+            if (map != null && map.isNotEmpty) {
+              //保存token等信息
+              DataUtils.saveLoginInfo(map);
+              //弹出当前路由，并返回refresh通知我的界面刷新数据
+              Navigator.pop(context, 'refresh');
+            }
+          }
+        });
       }
     });
-
-    }
-
-  void _login() async{
-    //登录成功之后  去获取用户的数据
-    var result = Navigator.of(context).push(MaterialPageRoute(builder:((context)=>LoginWebPage())));
-    //这里需要去获取到用户的数据
-
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
-    _flutterWebviewPlugin.dispose();
+    _flutterWebviewPlugin.close();
   }
 
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-      url: "url",
-      appBar: AppBar(
-        title: Row(
-          children: <Widget>[
-            Text('登录开源中国', style: TextStyle(color: Colors.green)),
-            //
-          ],
+    //authorize?response_type=code&client_id=s6BhdRkqt3&state=xyz&redirect_uri=https
+    List<Widget> _appBarTitle = [
+      Text(
+        '登录开源中国',
+        style: TextStyle(
+          color: Color(AppColors.APPBAR),
         ),
       ),
+    ];
+    if (isLoading) {
+      _appBarTitle.add(SizedBox(
+        width: 10.0,
+      ));
+      _appBarTitle.add(CupertinoActivityIndicator());
+    }
+
+    return WebviewScaffold(
+      url: AppUrls.OAUTH2_AUTHORIZE +
+          '?response_type=code&client_id=' +
+          AppInfos.CLIENT_ID +
+          '&redirect_uri=' +
+          AppInfos.REDIRECT_URI,
+      appBar: AppBar(
+        title: Row(
+          children: _appBarTitle,
+        ),
+        iconTheme: IconThemeData(color: Color(AppColors.APPBAR)), //0412 added
+      ),
       withJavascript: true,
-      //运行本次存储
-      withZoom: true,
-      //页面 网页的缩放
+      //允许执行js
       withLocalStorage: true,
+      //允许本地存储
+      withZoom: true, //允许网页缩放
     );
   }
 }

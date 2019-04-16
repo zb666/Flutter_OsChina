@@ -37,4 +37,6 @@ flutter:
   - assets/images/ic_nav_my_pressed.png
   #抽屉背景
   - assets/images/cover_img.jpg
+  #用户默认头像
+  - assets/images/ic_avatar_default.png
 
