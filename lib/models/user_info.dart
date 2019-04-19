@@ -17,17 +17,17 @@ class UserInfo {
 
   UserInfo(
       {this.uid,
-      this.name,
-      this.gender,
-      this.province,
-      this.city,
-      this.platforms,
-      this.expertise,
-      this.joinTime,
-      this.lastLoginTime,
-      this.portrait,
-      this.fansCount,
-      this.favoriteCount,
-      this.followersCount,
-      this.notice});
+        this.name,
+        this.gender,
+        this.province,
+        this.city,
+        this.platforms,
+        this.expertise,
+        this.joinTime,
+        this.lastLoginTime,
+        this.portrait,
+        this.fansCount,
+        this.favoriteCount,
+        this.followersCount,
+        this.notice});
 }

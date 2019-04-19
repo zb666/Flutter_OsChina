@@ -1,3 +1,4 @@
+// 用户基本信息
 class User {
   String gender;
   String name;
@@ -9,10 +10,10 @@ class User {
 
   User(
       {this.gender,
-      this.name,
-      this.location,
-      this.id,
-      this.avatar,
-      this.email,
-      this.url});
+        this.name,
+        this.location,
+        this.id,
+        this.avatar,
+        this.email,
+        this.url});
 }
