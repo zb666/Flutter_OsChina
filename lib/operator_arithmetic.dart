@@ -51,7 +51,19 @@ void main() {
 
   MyFunc myFunc = add(2, 1);
   myFunc = divider(4, 1);
-  
+
+  Map<String,dynamic> map = {"a":"map 中的 value","b":"2","c":"3"};
+  print(map['a']);
+
+  //里面的元素也是不可变化的
+  final List ls = [1,2,3];
+
+  //不会重新创建 const具有传递性，
+  // 比如修饰集合不可变化的同时，里面的数据也是不可变化的
+  const List ls2 = [1,2,3];
+
+  print(ls);
+  print(ls2);
 
 }
 

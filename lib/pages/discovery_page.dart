@@ -40,8 +40,10 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
         scan();
         break;
       case '摇一摇':
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => ShakePage()));
+//        Navigator.of(context)
+//            .push(MaterialPageRoute(builder: (context) => ShakePage()));
+      Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context)=>ShakePage()));
         break;
     }
   }
@@ -105,7 +107,7 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                     color: Color(0xffff0000),
                   );
                 },
-                itemCount: blocks[bolockIndex].length),
+                itemCount: blocks[bolockIndex].length,primary: true),
           );
         });
   }
