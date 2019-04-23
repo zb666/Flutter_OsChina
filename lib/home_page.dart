@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
           _appBarTitle[_currentIndex],
           style: TextStyle(color: Color(AppColors.APPBAR)),
         ),
-        iconTheme: IconThemeData(color: Color(AppColors.APPBAR)),
+        iconTheme: IconThemeData(color: Color(AppColors.APPBAR),opacity: 0.5),
       ),
       body: PageView.builder(
         physics: NeverScrollableScrollPhysics(),

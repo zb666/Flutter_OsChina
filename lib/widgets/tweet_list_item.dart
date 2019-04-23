@@ -106,8 +106,10 @@ class TweetListItem extends StatelessWidget {
             if (index < len) {
               rowArr.add(new Padding(
                 padding: const EdgeInsets.all(2.0),
-                child: new Image.network(imgUrlList[index],
-                    width: cellWidth, height: cellWidth),
+                child: new Image.network(
+                    imgUrlList[index],
+                    width: cellWidth,
+                    height: cellWidth),
               ));
             }
           }

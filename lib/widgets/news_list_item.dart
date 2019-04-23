@@ -7,7 +7,7 @@ class NewsListItem extends StatelessWidget {
   NewsListItem({this.newsList});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return InkWell(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(

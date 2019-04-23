@@ -49,7 +49,7 @@ class _PublishTweetPageState extends State<PublishTweetPage> {
             crossAxisCount: 4,
             children: List.generate(
               fileList.length + 1,
-                  (index) {
+              (index) {
                 if (index == fileList.length) {
                   return Builder(
                     builder: (context) {
@@ -182,7 +182,7 @@ class _PublishTweetPageState extends State<PublishTweetPage> {
     print('动弹内容：$tweetContent');
 
     var multipartRequest =
-    http.MultipartRequest('POST', Uri.parse(AppUrls.TWEET_PUB));
+        http.MultipartRequest('POST', Uri.parse(AppUrls.TWEET_PUB));
     multipartRequest.fields.addAll(params);
     if (fileList.length > 0) {
       for (File file in fileList) {

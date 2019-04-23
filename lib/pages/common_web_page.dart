@@ -21,7 +21,6 @@ class _CommonWebPageState extends State<CommonWebPage> {
   bool isLoading = true;
   FlutterWebviewPlugin _flutterWebviewPlugin = FlutterWebviewPlugin();
 
-
   @override
   void initState() {
     super.initState();
