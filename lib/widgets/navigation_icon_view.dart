@@ -13,17 +13,27 @@ class NavigationIconView {
   //actived icon path
   final String activeIconPath;
 
+//  NavigationIconView(
+//      {@required this.title,
+//      @required this.iconPath,
+//      @required this.activeIconPath})
+//      : item = BottomNavigationBarItem(
+//            icon: Image.asset(iconPath,
+//              width: 20.0,
+//              height: 20.0,
+//            ),
+//            activeIcon: Image.asset(activeIconPath,
+//              width: 20.0,
+//              height: 20.0,),
+//            title: Text(title));
+
+  //这里是构造方法的方法体
   NavigationIconView(
       {@required this.title,
       @required this.iconPath,
       @required this.activeIconPath})
       : item = BottomNavigationBarItem(
-            icon: Image.asset(iconPath,
-              width: 20.0,
-              height: 20.0,
-            ),
-            activeIcon: Image.asset(activeIconPath,
-              width: 20.0,
-              height: 20.0,),
+            icon: Image.asset(iconPath, width: 20.0, height: 20.0),
+            activeIcon: Image.asset(activeIconPath, width: 20.0, height: 20),
             title: Text(title));
 }

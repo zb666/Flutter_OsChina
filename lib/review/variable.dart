@@ -47,10 +47,24 @@ void main() {
     return (int y) => x + y;
   }
 
+
   //闭包返回的函数对象
   var makeVar = makeAddFunc(10);
   var makeVar2 = makeVar(40);
   print(makeVar2);
+
+  int aa = 1;
+  aa++;//会改变自身的值
+  print(aa);
+
+  int bbb = 1;
+  bbb+1;//不会改变自身的值
+  print(bbb);
+
+  makeVar2 = null;
+  makeVar2??="空数据";
+  print(makeVar2);
+
 }
 
 //表达式中只有一行方法体的时候  可以进行省略

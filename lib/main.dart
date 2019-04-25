@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_osc_client/constants/constants.dart' show AppColors;
 import 'package:flutter_osc_client/pages/selectImage.dart';
 import 'package:flutter_osc_client/home_page.dart';
+import 'package:flutter_osc_client/pages/HomePage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:convert';
 import 'dart:io';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(AppColors.APP_THEME),
       ),
-      home: MyStfWidget(),
+      home: Home_Page(),
     );
   }
 }
@@ -47,8 +48,8 @@ class _MyStfWidgetState extends State<MyStfWidget> {
       floatingActionButton: FloatingActionButton(
         onPressed: getImage,
         shape: CircleBorder(side: BorderSide.none),
-        tooltip: "Pick Image",
-        child: Icon(Icons.add_a_photo),
+        tooltip: "开启新界面",
+        child: Icon(Icons.add_a_photo)
       ),
     );
   }

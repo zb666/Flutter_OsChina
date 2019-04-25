@@ -26,4 +26,7 @@ abstract class AppUrls {
   static const String NEWS_DETAIL = HOST + '/action/openapi/news_detail';
   static const String TWEET_LIST = HOST + '/action/openapi/tweet_list';
   static const String TWEET_PUB = HOST + '/action/openapi/tweet_pub';
+
+  static const int INITIAL_CUR_INDEX = 0;
+
 }
