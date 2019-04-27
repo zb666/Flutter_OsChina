@@ -3,14 +3,22 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--提升启动白屏用户体验-->
-        <item name="android:windowBackground">@drawable/push</item>
+        <!--<item name="android:windowBackground">@drawable/push</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <!--这是清单文件中Activity需要设置的-->
-    <style name="AppTheme.Launcher">
+    <style name="AppTheme.Launcher" >
         <item name="android:windowBackground">@drawable/push</item>
+    </style>
+
+
+    <style name="ImageScale" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
     <!--启动完成之后，还原Style 用户替换临时的AppStyle-->
     <!-- Base application theme. -->
@@ -20,6 +28,5 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
 
 </resources>
