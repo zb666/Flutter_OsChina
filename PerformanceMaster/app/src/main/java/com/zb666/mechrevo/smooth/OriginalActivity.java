@@ -2,14 +2,22 @@ package com.zb666.mechrevo.smooth;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.zb666.mechrevo.performancemaster.R;
+
+import java.io.File;
 
 
 public class OriginalActivity extends Activity {
@@ -53,7 +61,14 @@ public class OriginalActivity extends Activity {
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item, null);
 			imageView = (ImageView) view.findViewById(R.id.image);
-			imageView.setImageResource(ImageRes[position]);
+			Glide.with(OriginalActivity.this)
+					.load("http://appfile.xys.ren/avatar1/2018/05/1684291687461527569516.jpg")
+					.downloadOnly(new SimpleTarget<File>() {
+						@Override
+						public void onResourceReady(@NonNull File resource, @Nullable Transition<? super File> transition) {
+							imageView.setImageURI(Uri.fromFile(resource));
+						}
+					});
 
 			imageView.setOnClickListener(new View.OnClickListener() {
 				@Override

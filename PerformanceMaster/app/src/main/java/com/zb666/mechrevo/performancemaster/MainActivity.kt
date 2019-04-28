@@ -13,6 +13,7 @@ import android.opengl.ETC1.getHeight
 import android.opengl.ETC1.getWidth
 import android.content.Intent
 import com.zb666.PhotoActivity
+import com.zb666.RvActivity
 import com.zb666.mechrevo.smooth.OriginalActivity
 
 
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun jump() {
-        val intent = Intent(this@MainActivity, OriginalActivity::class.java)
+        val intent = Intent(this@MainActivity, RvActivity::class.java)
         startActivity(intent)
     }
 }

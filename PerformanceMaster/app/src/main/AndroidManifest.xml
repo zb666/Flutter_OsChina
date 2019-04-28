@@ -11,9 +11,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name="com.zb666.RvActivity">
+        </activity>
         <activity
-                android:theme="@style/ImageScale"
-                android:name="com.zb666.PhotoActivity">
+                android:name="com.zb666.PhotoActivity"
+                android:theme="@style/ImageScale">
         </activity>
         <activity
                 android:name=".MainActivity"
@@ -25,9 +27,8 @@
             </intent-filter>
         </activity>
         <activity
-                android:theme="@style/ImageScale"
-                android:name="com.zb666.mechrevo.smooth.ImageDetailActivity"/>
-
+                android:name="com.zb666.mechrevo.smooth.ImageDetailActivity"
+                android:theme="@style/ImageScale"/>
         <activity android:name="com.zb666.mechrevo.smooth.OriginalActivity"/>
     </application>
 
