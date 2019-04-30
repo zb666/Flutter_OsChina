@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.zb666.cachemoudle.ImageDetailBean;
 import com.zb666.mechrevo.performancemaster.R;
 
 import java.io.File;
@@ -73,8 +74,12 @@ public class OriginalActivity extends Activity {
 			imageView.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
+
+					ImageDetailBean imageDetailBean = new ImageDetailBean("image",2);
+
 					Intent intent = new Intent(OriginalActivity.this, ImageDetailActivity.class);
 					intent.putExtra("images", ImageRes[position]);
+					intent.putExtra("imageDetailBean",imageDetailBean);
 					int[] location = new int[2];
 					view.getLocationOnScreen(location);
 					intent.putExtra("locationX", location[0]);

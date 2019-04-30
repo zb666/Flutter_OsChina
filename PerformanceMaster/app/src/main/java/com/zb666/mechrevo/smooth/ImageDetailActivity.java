@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.zb666.cachemoudle.ImageDetailBean;
 
 import java.io.File;
 
@@ -23,11 +24,15 @@ public class ImageDetailActivity extends Activity {
 	private int mWidth;
 	private int mHeight;
 	private SmoothImageView imageView = null;
+	private ImageDetailBean imageDetailBean;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+		imageDetailBean = getIntent().getParcelableExtra("imageDetailBean");
+
 		mRes = getIntent().getStringExtra("images");
 		mLocationX = getIntent().getIntExtra("locationX", 0);
 		mLocationY = getIntent().getIntExtra("locationY", 0);

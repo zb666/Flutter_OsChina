@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
+import com.zb666.cachemoudle.ImageDetailBean;
 import com.zb666.item.EntityA;
 import com.zb666.item.EntityB;
 import com.zb666.item.MyMultipleItem;
@@ -47,6 +48,8 @@ public class RvActivity extends AppCompatActivity {
                 int itemViewType = adapter.getItemViewType(position);
 //                if (itemViewType == MyMultipleItem.FIRST_TYPE) return;
                 Intent intent = new Intent(RvActivity.this, ImageDetailActivity.class);
+                ImageDetailBean imageDetailBean = new ImageDetailBean("image",1);
+                intent.putExtra("imageDetailBean",imageDetailBean);
                 intent.putExtra("images", "https://youimg1.c-ctrip.com/target/100310000000p6767262E.jpg");
                 int[] location = new int[2];
                 view.findViewById(R.id.iv_smooth).getLocationOnScreen(location);
