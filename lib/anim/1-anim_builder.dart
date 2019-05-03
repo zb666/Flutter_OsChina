@@ -9,57 +9,58 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+//使用自定义的state对象作为vysnc的时候，请包涵 TickerProviderMixin
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   Animation<double> _doubleAnim;
   AnimationController _animationController;
+  String _animValue;
 
-  void myListener(status) {
-    if (status == AnimationStatus.completed) {
-      _animationController.removeStatusListener(myListener);
-      _animationController.reset();
-      _doubleAnim = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-          parent: _animationController, curve: Curves.fastOutSlowIn));
-      _animationController.forward();
-    }
-  }
-
+  //四种状态
+  //1 dismissed 初始状态
+  //2 forward 从头到尾
+  //3 reverse 反转
+  //4 completed 完成的状态
   @override
   void initState() {
     super.initState();
+    //vysnc 防止屏幕外部的动画消耗资源
     _animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    _doubleAnim = Tween(begin: -1.0, end: 0.0).animate(CurvedAnimation(
-        parent: _animationController, curve: Curves.fastOutSlowIn))
-      ..addStatusListener(myListener); //将动画控制部分的代码进行了抽取
-    _animationController.forward();
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    _doubleAnim = Tween(begin: 0.0, end: 1.0).animate(_animationController)
+      ..addListener(() {
+        print(_doubleAnim.value.toString());
+        setState(() {
+          _animValue = _doubleAnim.value.toString();
+        });
+      })
+      ..addStatusListener((status) {
+        if(status==AnimationStatus.completed){
+          _animationController.reverse();
+        }else if(status == AnimationStatus.dismissed){
+          _animationController.forward();//
+        }
+      });
   }
 
   @override
   void dispose() {
+    // TODO: implement dispose
     super.dispose();
     _animationController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    var _screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: AnimatedBuilder(
-          animation: _animationController,
-          builder: (BuildContext context, Widget child) {
-            return Transform(
-              transform: Matrix4.translationValues(
-                  _doubleAnim.value * _screenWidth, 0.0, 0.0),
-              child: Center(
-                child: Container(
-                  width: 200.0,
-                  height: 200.0,
-                  child: FlutterLogo(),
-                ),
-              ),
-            );
-          }),
-    );
+        //??=还有个赋值的作用 ??只是起到给与数据的作用
+        body: Center(
+          child: Text(_animValue ??= "0.0"),
+        ),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              _animationController.forward(from: 0.0);
+            },
+            child: Icon(Icons.play_arrow)));
   }
 }

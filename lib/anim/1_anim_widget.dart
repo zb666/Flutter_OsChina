@@ -54,25 +54,29 @@ class _HomePageState extends State<HomePage>
 /**
  * 这是动画的组件
  */
-class MyLogo extends AnimatedWidget {
-  final Tween<double> _rotateAnim = Tween<double>(begin: 0.0, end: 20.0);
-  final Tween<double> _scaleAnim = Tween<double>(begin: 1.0, end: 10.0);
-//  final Tween<Color> _colorAnim = Tween<Color>(begin: Colors.white, end: Colors.red);
+class MyLogo extends AnimatedWidget{
 
-  MyLogo({Key key, @required Animation animation})
-      : super(key: key, listenable: animation);
+  final Tween<double> _rotateAnim = new Tween<double>(begin: 0.0,end: 20.0);
+  final Tween<double> _scaleAnim = new Tween<double>(begin: 1.0,end: 10.0);
+  final Tween<Color> _colorAnim = new Tween<Color>(begin: Colors.white,end: Colors.blue);
+
+  //animationcontroller本身就是继承自Animation的
+  MyLogo({Key,key,@required Animation animation})
+      :super(key:key,listenable:animation);
 
   @override
   Widget build(BuildContext context) {
+    //这里多态的关系 控制器需要外界来给与
     final Animation<double> animation = listenable;
+    //通过transform进行各项动画的组合
+    //AnimatedWidget 自身就是一个widget组件
     return Transform.scale(
       scale: _scaleAnim.evaluate(animation),
-      child: Transform.rotate( //scale && translate,旋转平移缩放
-        angle: _rotateAnim.evaluate(animation),
-        child: Container(
-          child: FlutterLogo(),
-        ),
+      child: Transform.rotate(
+          angle: _rotateAnim.evaluate(animation),
+        child: FlutterLogo(),
       ),
     );
   }
 }
+
