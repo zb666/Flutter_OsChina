@@ -8,6 +8,7 @@
         android:background="@color/colorWhite"
         tools:context=".MainActivity">
 
+
     <TextView
             android:id="@+id/tv"
             android:layout_width="wrap_content"
@@ -22,20 +23,20 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.484"/>
 
     <com.youth.banner.Banner
-           app:layout_constraintLeft_toLeftOf="@+id/tv"
-           app:layout_constraintTop_toBottomOf="@+id/tv"
+            app:layout_constraintLeft_toLeftOf="@+id/tv"
+            app:layout_constraintTop_toBottomOf="@+id/tv"
             android:id="@+id/banner"
-           app:indicator_drawable_selected="@drawable/gray_radius"
-           app:indicator_drawable_unselected="@drawable/white_radius"
+            app:indicator_drawable_selected="@drawable/gray_radius"
+            app:indicator_drawable_unselected="@drawable/white_radius"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"/>
 
     <TextView
             android:id="@+id/tv2"
             android:layout_width="74dp"
             android:layout_height="0dp"
             app:layout_constraintDimensionRatio="2:1"
-            android:text="Hello World!"
+            android:text="测试横向滚动"
             android:gravity="center"
             app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -44,6 +45,18 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.24"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/tv"
             android:layout_marginRight="8dp"/>
+
+    <TextView
+            android:id="@+id/tvPup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv2"
+            app:layout_constraintLeft_toLeftOf="@+id/tv2"
+            android:text="显示PopupWindow"
+    />
+
+
     <android.support.constraint.ConstraintLayout
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +67,7 @@
                   android:layout_height="match_parent"
                   app:layout_constraintLeft_toLeftOf="parent"
                   app:layout_constraintRight_toLeftOf="@+id/guideline"
-                  android:text="注册"
+                  android:text="Pup"
                   android:textStyle="bold"
                   android:textSize="20sp"
                   android:gravity="center"/>

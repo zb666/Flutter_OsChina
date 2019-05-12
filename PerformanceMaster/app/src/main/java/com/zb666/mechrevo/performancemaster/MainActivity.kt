@@ -1,5 +1,6 @@
 package com.zb666.mechrevo.performancemaster
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,10 +13,11 @@ import java.util.*
 import android.opengl.ETC1.getHeight
 import android.opengl.ETC1.getWidth
 import android.content.Intent
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.PopupWindow
 import com.youth.banner.BannerConfig
-import com.zb666.GlideImageLoader
-import com.zb666.PhotoActivity
-import com.zb666.RvActivity
+import com.zb666.*
 import com.zb666.mechrevo.smooth.OriginalActivity
 import kotlin.collections.ArrayList
 
@@ -49,6 +51,13 @@ class MainActivity : AppCompatActivity() {
         tv.setOnClickListener {
             jump()
         }
+        tv2.setOnClickListener {
+            jump222()
+        }
+
+        tvPup.setOnClickListener {
+            showPup()
+        }
 
         banner.apply {
             setImageLoader(GlideImageLoader())
@@ -57,11 +66,38 @@ class MainActivity : AppCompatActivity() {
             setIndicatorGravity(BannerConfig.CENTER)
         }.start()
 
+        supportFragmentManager.beginTransaction()
+            .add(MyDialog(), "")
+            .commitAllowingStateLoss()
+
+        jump()
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            showPup()
+        }
+    }
+
+    private fun showPup() {
+    }
+
+    private fun jump222() {
+        var intent = Intent(this, HorActivity::class.java)
+        startActivity(intent)
     }
 
     private fun jump() {
         val intent = Intent(this@MainActivity, RvActivity::class.java)
-        startActivity(intent)
+        startActivityForResult(intent, 111)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == 111) {
+            val listStr = data?.getStringArrayExtra("data")
+        }
     }
 
 

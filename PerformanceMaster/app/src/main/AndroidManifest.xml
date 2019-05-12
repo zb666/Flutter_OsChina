@@ -30,6 +30,7 @@
                 android:name="com.zb666.mechrevo.smooth.ImageDetailActivity"
                 android:theme="@style/ImageScale"/>
         <activity android:name="com.zb666.mechrevo.smooth.OriginalActivity"/>
+        <activity android:name="com.zb666.HorActivity"/>
     </application>
 
 </manifest>
