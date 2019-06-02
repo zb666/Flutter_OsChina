@@ -16,9 +16,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.PopupWindow
+import com.ArrayUtils
 import com.youth.banner.BannerConfig
 import com.zb666.*
 import com.zb666.mechrevo.smooth.OriginalActivity
+import java.io.Serializable
 import kotlin.collections.ArrayList
 
 
@@ -27,11 +29,18 @@ class MainActivity : AppCompatActivity() {
     private val strLazy by lazy {
         "lazy data"
     }
+    var list = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppTheme_After_Launch)
         setContentView(R.layout.activity_main)
+list.add("1")
+list.add("2")
+list.add("3")
+
+//ArrayUtils.toArray()
+
 
         val ofo = FlyWeightFactory.getInstance().getOrderBike("ofo")
         ofo.getBikeStr("ofo 输出")
@@ -90,6 +99,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun jump() {
         val intent = Intent(this@MainActivity, RvActivity::class.java)
+        val list = ArrayList<Person>()
+        val  person = Person()
+        person.name = "aaaaaa"
+        list.add(person)
+        intent.putExtra("aaa",list)
         startActivityForResult(intent, 111)
     }
 

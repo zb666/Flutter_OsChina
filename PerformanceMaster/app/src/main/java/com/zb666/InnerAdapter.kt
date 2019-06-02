@@ -1,5 +1,6 @@
 package com.zb666
 
+import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
@@ -10,6 +11,7 @@ import com.zb666.item.EntityA
 import com.zb666.item.EntityB
 import com.zb666.item.MyMultipleItem
 import com.zb666.mechrevo.performancemaster.R
+import kotlin.math.log
 
 class InnerAdapter
 /**
@@ -27,6 +29,7 @@ class InnerAdapter
 
     override fun convert(helper: BaseViewHolder, item: MyMultipleItem) {
         val itemType = item.itemType
+        Log.d("BobClick","$helper.adapterPosition"+" "+"${helper.layoutPosition}")
         when (itemType) {
             MyMultipleItem.FIRST_TYPE -> helper.setText(R.id.tv111, item.data)
             MyMultipleItem.SECOND_TYPE -> {

@@ -11,14 +11,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.zb666.RvActivity">
+        <activity android:name="com.AAAAc">
         </activity>
         <activity
                 android:name="com.zb666.PhotoActivity"
                 android:theme="@style/ImageScale">
         </activity>
         <activity
-                android:name=".MainActivity"
+                android:name="com.zb666.HorActivity"
                 android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -30,7 +30,8 @@
                 android:name="com.zb666.mechrevo.smooth.ImageDetailActivity"
                 android:theme="@style/ImageScale"/>
         <activity android:name="com.zb666.mechrevo.smooth.OriginalActivity"/>
-        <activity android:name="com.zb666.HorActivity"/>
+        <activity android:name="com.zb666.mechrevo.performancemaster.MainActivity"/>
+        <activity android:name="com.zb666.RvActivity"/>
     </application>
 
 </manifest>

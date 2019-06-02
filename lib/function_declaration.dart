@@ -33,8 +33,33 @@ void main(List args) {
   //函数对象=>
   calculator(1, 2, divider);
 
+  var singleTon = SingleTon("单例构造 ");
+  print(singleTon.name);
+
+
 
 }
+
+abstract class Transportation{
+  void tranport();
+}
+
+class TransportA implements Transportation{
+  @override
+  void tranport() {
+
+  }
+}
+
+class TransportB implements Transportation{
+  @override
+  void tranport() {
+
+  }
+}
+
+
+
 
 getString(name) {
   return name;
@@ -56,6 +81,17 @@ class SortCollection {
     add3(3, 4, 5);
     add3(3, 4);
   }
+}
+
+class SingleTon {
+  String name;
+  static SingleTon _cache;
+
+  factory SingleTon([String name = 'singleeton']) =>
+      SingleTon._cache ??= SingleTon._newObject(name);
+
+  //私有化构造函数
+  SingleTon._newObject(this.name);
 }
 
 int sort(Object a, Object b) => 0;

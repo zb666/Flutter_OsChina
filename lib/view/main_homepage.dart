@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-  home: HomePage(),
-));
+      home: HomePage(),
+    ));
 
 class HomePage extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class FloatingPainter extends CustomPainter{
+class FloatingPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     //初始化画笔 并且随机的赋予颜色
@@ -32,15 +32,13 @@ class FloatingPainter extends CustomPainter{
     var redPaint = Paint()
       ..color = Colors.red
       ..strokeWidth = 5.0;
-
   }
 
   //在刷新布局的时候 是否需要重新绘制，那么答案显然是不需要
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     // TODO: implement shouldRepaint
-    return false;
+    return null;
   }
 
 }
-

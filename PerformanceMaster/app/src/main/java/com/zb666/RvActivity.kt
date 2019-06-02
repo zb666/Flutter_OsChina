@@ -10,8 +10,12 @@ import android.media.Image
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Trace
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -32,6 +36,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_rv.*
 import kotlinx.android.synthetic.main.item_label.*
 import kotlinx.android.synthetic.main.item_label.view.*
+import retrofit2.Retrofit
+import java.lang.reflect.ParameterizedType
 
 import java.util.ArrayList
 
@@ -39,11 +45,21 @@ class RvActivity : AppCompatActivity() {
 
     var list = ArrayList<String>()
 
+    var isPlay = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rv)
+
+        var sss = "aaa"+"_"+"bbb"+"_"+"ccc"
+
+        for (s in sss.split("_")) {
+            val s1 = s
+        }
+
         val recyclerView = findViewById<RecyclerView>(R.id.recycle)
 
+        var list = intent.getSerializableExtra("aaa") as List<Person>
         val itemList = ArrayList<MyMultipleItem>()
         for (i in 0..9) {
             val myMultipleItem = MyMultipleItem(if (i % 2 == 0) 1 else 2, "哈哈$i")
@@ -111,6 +127,39 @@ class RvActivity : AppCompatActivity() {
         tvBack.setOnClickListener {
             showPop()
         }
+
+        val ivBg = ivPlay.background as AnimationDrawable
+        tvPlay.setOnClickListener {
+            isPlay = !isPlay
+            if (isPlay) {
+                ivBg.start()
+            } else {
+                ivBg.stop()
+                ivBg.selectDrawable(0)
+            }
+            if (isPlay) {
+                tvPlay.setCompoundDrawables(null, null, null, null)
+            } else {
+                tvPlay.setCompoundDrawablesWithIntrinsicBounds(
+                    null,
+                    null,
+                    resources.getDrawable(R.drawable.ic_sanjiao_left),
+                    null
+                )
+            }
+
+            var strTitle = SpannableString("病情描述（必填项，请至少填写20个字）")
+            strTitle.setSpan(
+                ForegroundColorSpan(getResources().getColor(R.color.colorPrimaryDark)),
+                0,
+                4,
+                Spanned.SPAN_INCLUSIVE_INCLUSIVE
+            )
+            tvSp.setText(strTitle)
+
+        }
+
+
 
     }
 
@@ -184,6 +233,9 @@ class RvActivity : AppCompatActivity() {
             }
         })
 
+
+        //Systrace 监控
+        Trace.beginSection("FF")
         when (alpha) {
             1, 2 -> {
             }

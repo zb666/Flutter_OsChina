@@ -9,7 +9,34 @@
         android:layout_height="match_parent"
         tools:context="com.zb666.RvActivity">
 
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:id="@+id/tvSp"
+              android:text="dsfsdfds"
+              android:textSize="@dimen/sp_14"
+    />
 
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView android:layout_width="wrap_content"
+                  android:text="暂停或者播放"
+                  android:drawablePadding="20dp"
+                  android:layout_alignParentRight="true"
+                  android:drawableRight="@mipmap/ic_launcher"
+                  android:id="@+id/tvPlay"
+                  android:layout_height="@dimen/dp_40"/>
+
+    </RelativeLayout>
+
+
+    <FrameLayout android:layout_width="wrap_content"
+                 android:background="@color/color_harf"
+                 android:layout_height="wrap_content">
+        <ImageView
+                android:id="@+id/ivPlay"
+                android:background="@drawable/anim_record_play"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+    </FrameLayout>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

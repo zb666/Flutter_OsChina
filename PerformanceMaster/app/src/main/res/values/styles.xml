@@ -3,22 +3,14 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--提升启动白屏用户体验-->
-        <!--<item name="android:windowBackground">@drawable/push</item>-->
+        <item name="android:windowBackground">@drawable/push</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <!--这是清单文件中Activity需要设置的-->
-    <style name="AppTheme.Launcher" >
+    <style name="AppTheme.Launcher">
         <item name="android:windowBackground">@drawable/push</item>
-    </style>
-
-
-    <style name="ImageScale" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowContentOverlay">@null</item>
     </style>
     <!--启动完成之后，还原Style 用户替换临时的AppStyle-->
     <!-- Base application theme. -->
@@ -29,24 +21,5 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="filterDialogAnim" mce_bogus="1" parent="android:Animation">
-        <item name="android:windowEnterAnimation">@animator/fade_in</item>
-        <item name="android:windowExitAnimation">@animator/fade_out</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowFrame">@null</item>
-        <!-- 边框 -->
-        <item name="android:windowIsFloating">true</item>
-        <!-- 是否浮现在activity之上 -->
-        <item name="android:windowIsTranslucent">true</item>
-        <!-- 半透明 -->
-        <item name="android:windowNoTitle">true</item>
-        <!-- 无标题 -->
-        <!--<item name="android:windowBackground">@color/transparent</item>-->
-        <!-- 背景透明 -->
-        <item name="android:backgroundDimEnabled">false</item>
-        <!-- 模糊 -->
-        <item name="android:backgroundDimAmount">0</item>
-    </style>
 
 </resources>
