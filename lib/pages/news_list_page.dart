@@ -140,7 +140,7 @@ class _NewsListPageState extends State<NewsListPage> {
 
     return RefreshIndicator(
       onRefresh: _pullToRefresh,
-      child: buildListView(),
+      child: buildListView()
     );
   }
 

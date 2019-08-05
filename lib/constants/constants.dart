@@ -2,6 +2,7 @@ abstract class AppColors {
   //应用主题色
   static const APP_THEME = 0xff63ca6c;
   static const APPBAR = 0xffffffff;
+  static const APP_BLANK = 0xfff0000;
 }
 
 abstract class AppInfos {

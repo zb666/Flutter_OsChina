@@ -14,7 +14,7 @@ class Home_Page extends StatefulWidget {
 }
 
 class _Home_PageState extends State<Home_Page> {
-  final _appBarTitle = ['资讯', '动弹', '发现', '我的'];
+  final _appBarTitle = ['咨询', '动弹', '发现', '我的'];
 
   var _currentIndex = AppUrls.INITIAL_CUR_INDEX;
 
@@ -26,7 +26,6 @@ class _Home_PageState extends State<Home_Page> {
   @override
   void initState() {
     super.initState();
-
     _navigationIconViews = [
       NavigationIconView(
           title: "资讯",

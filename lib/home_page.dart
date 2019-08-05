@@ -3,7 +3,7 @@ import 'package:flutter_osc_client/constants/constants.dart' show AppColors;
 import 'package:flutter_osc_client/pages/discovery_page.dart';
 import 'package:flutter_osc_client/pages/news_list_page.dart';
 import 'package:flutter_osc_client/pages/profile_page.dart';
-import 'package:flutter_osc_client/pages/tweet_page.dart';
+import "package:flutter_osc_client/pages/tweet_page.dart";
 import 'package:flutter_osc_client/widgets/my_drawer.dart';
 import 'package:flutter_osc_client/widgets/navigation_icon_view.dart';
 
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
           _appBarTitle[_currentIndex],
           style: TextStyle(color: Color(AppColors.APPBAR)),
         ),
-        iconTheme: IconThemeData(color: Color(AppColors.APPBAR),opacity: 0.5),
+        iconTheme: IconThemeData(color: Color(AppColors.APPBAR), opacity: 0.5),
       ),
       body: PageView.builder(
         physics: NeverScrollableScrollPhysics(),

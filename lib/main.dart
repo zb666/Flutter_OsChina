@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osc_client/constants/constants.dart' show AppColors;
+import 'package:flutter_osc_client/pages/ListItemWidget.dart';
+import 'package:flutter_osc_client/pages/WidgetPage.dart';
 import 'package:flutter_osc_client/pages/selectImage.dart';
 import 'package:flutter_osc_client/home_page.dart';
 import 'package:flutter_osc_client/pages/HomePage.dart';
@@ -18,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(AppColors.APP_THEME),
       ),
-      home: Home_Page(),
+//      home: Home_Page(),
+      home: ListItem(),
     );
   }
 }
@@ -43,14 +46,13 @@ class _MyStfWidgetState extends State<MyStfWidget> {
     return Scaffold(
       appBar: AppBar(title: Text('i am picker example')),
       body: Center(
-        child: _image == null?Text('no image selected'):Image.file(_image)
-      ),
+          child:
+              _image == null ? Text('no image selected') : Image.file(_image)),
       floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
-        shape: CircleBorder(side: BorderSide.none),
-        tooltip: "开启新界面",
-        child: Icon(Icons.add_a_photo)
-      ),
+          onPressed: getImage,
+          shape: CircleBorder(side: BorderSide.none),
+          tooltip: "开启新界面",
+          child: Icon(Icons.add_a_photo)),
     );
   }
 }
