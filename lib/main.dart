@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, //去掉右上角debug标签
+      debugShowCheckedModeBanner: false, //去掉右上角debug标签 `
       title: '开源中国',
       theme: ThemeData(
         primaryColor: Color(AppColors.APP_THEME),
