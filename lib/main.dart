@@ -9,50 +9,59 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:convert';
 import 'dart:io';
 
-void main() => runApp(MyApp());
+import 'models/stateful_group_page.dart';
+
+void main() => runApp(StatefulGroup());
+
+const CITY_NAMES = [
+  '北京',
+  '香港',
+  '杭州',
+  '苏州',
+  '成都',
+  "宁波",
+  "广州",
+  "苏州",
+  "北京",
+  "江苏",
+  "台湾"
+];
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, //去掉右上角debug标签 `
-      title: '开源中国',
-      theme: ThemeData(
-        primaryColor: Color(AppColors.APP_THEME),
-      ),
-//      home: Home_Page(),
-      home: ListItem(),
+      title: "my title",
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text(null ?? '数据为空'),
+          ),
+//        body: ListView(
+//          reverse: true,
+//          children: _buildList(),
+//        ),
+          body: StatefulGroup()//GridView.count(crossAxisCount: 2, children: _buildList())),
+     )
     );
   }
 }
 
-class MyStfWidget extends StatefulWidget {
-  @override
-  _MyStfWidgetState createState() => _MyStfWidgetState();
+_buildList() => CITY_NAMES.map((city) => _item(city)).toList();
+
+Widget _item(String city) {
+  return Container(
+    height: 80,
+    margin: EdgeInsets.only(bottom: 5),
+    decoration: BoxDecoration(color: Colors.teal),
+    child: Text(city, style: TextStyle(color: Colors.white, fontSize: 20)),
+  );
 }
 
-class _MyStfWidgetState extends State<MyStfWidget> {
-  File _image;
-
-  getImage() async {
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-    setState(() {
-      this._image = image;
-    });
-  }
-
+class ImagePickerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('i am picker example')),
-      body: Center(
-          child:
-              _image == null ? Text('no image selected') : Image.file(_image)),
-      floatingActionButton: FloatingActionButton(
-          onPressed: getImage,
-          shape: CircleBorder(side: BorderSide.none),
-          tooltip: "开启新界面",
-          child: Icon(Icons.add_a_photo)),
+      appBar: AppBar(title: Text('imagepicker')),
     );
   }
 }
