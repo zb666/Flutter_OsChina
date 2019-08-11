@@ -9,9 +9,10 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:convert';
 import 'dart:io';
 
+import 'OtherPage.dart';
 import 'models/stateful_group_page.dart';
 
-void main() => runApp(StatefulGroup());
+void main() => runApp(MyApp());
 
 const CITY_NAMES = [
   '北京',
@@ -32,16 +33,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "my title",
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text(null ?? '数据为空'),
-          ),
-//        body: ListView(
-//          reverse: true,
-//          children: _buildList(),
+//      home: Scaffold(
+//        appBar: AppBar(
+//          title: Text(null ?? '数据为空'),
+//          leading: GestureDetector(onTap: () {
+//            Navigator.pushNamed(context, 'pluginPage');
+//          }),
 //        ),
-          body: StatefulGroup()//GridView.count(crossAxisCount: 2, children: _buildList())),
-     )
+//        floatingActionButton: FloatingActionButton(
+//            child: Text('插件制作跳转'),
+//            elevation: 10,
+//            onPressed: () {
+//              Navigator.pushNamed(context, 'pluginPage');
+//            }),
+//      ),
+//          body:
+//              StatefulGroup() //GridView.count(crossAxisCount: 2, children: _buildList())),
+//          ),
+//      home: HomePage(),
+      home: MyRaisedNav(),
+      routes: <String, WidgetBuilder>{
+        'homePage': (_) => HomePage(),
+        'pluginPage': (_) => PluginUserPage()
+      },
     );
   }
 }
@@ -64,4 +78,19 @@ class ImagePickerApp extends StatelessWidget {
       appBar: AppBar(title: Text('imagepicker')),
     );
   }
+}
+
+class MyRaisedNav extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Center(
+      child: RaisedButton(
+          child: Text('Nav 跳转'),
+          onPressed: () => {
+          Navigator.pushNamed(context, 'homePage') //context要用页面页面级别的Context，保持context一致
+      }),
+    );
+  }
+
 }
