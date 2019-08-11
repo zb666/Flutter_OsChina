@@ -103,7 +103,8 @@ class _StatefulGroupState extends State<StatefulGroup> {
                                   child: Text('Chip Data',
                                       style: TextStyle(fontSize: 5,height: 50)),
                                   radius: 5,
-                                ))
+                                )),
+                            Image(image: AssetImage('assets/images/ic_nav_news_normal.png'),height: 100,width: 100)
                           ],
                         ),
                       )
