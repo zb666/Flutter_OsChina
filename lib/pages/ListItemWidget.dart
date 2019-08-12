@@ -15,7 +15,7 @@ class ListState extends State {
         itemBuilder: (context, index) {
           return Column(children: <Widget>[
             Text(
-              "item $index",
+              "item  $index",
               style: TextStyle(fontSize: 12, fontWeight: FontWeight.normal),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
