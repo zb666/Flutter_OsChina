@@ -18,6 +18,10 @@ class _PluginUserPage extends State<PluginUserPage> {
          child: Icon(Icons.arrow_back),
        ),
      ),
+      body: FractionallySizedBox(
+        alignment: Alignment.center,
+        widthFactor: 1,
+      ),
     );
   }
 }

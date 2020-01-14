@@ -86,7 +86,7 @@ class MyRaisedNav extends StatelessWidget {
     // TODO: implement build
     return Center(
       child: RaisedButton(
-          child: Text('Nav 跳  转'),
+          child: Text('Nav Start Guide'),
           onPressed: () => {
           Navigator.pushNamed(context, 'homePage') //context要用页面页面级别的Context，保持context一致
       }),
