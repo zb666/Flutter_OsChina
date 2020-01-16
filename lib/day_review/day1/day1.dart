@@ -73,6 +73,20 @@ void main() {
 
 }
 
+class TestA{
+
+  String name;
+
+  TestA._newObject(this.name){
+    var a = 14;
+  }
+
+
+
+}
+
+
+
 void singleAdd(int a){
   print(a);
 }

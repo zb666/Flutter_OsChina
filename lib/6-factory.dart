@@ -25,6 +25,19 @@ class Singleton {
   }
 }
 
+class A {
+  num a;
+  num b;
+
+  A(this.a, this.b);
+
+  num get right => a + b;
+
+  num get left => a - b;
+
+  set left(value) => value += left;
+}
+
 class Rect {
   num left;
   num top;
@@ -36,6 +49,4 @@ class Rect {
   set right(value) => value + left;
 }
 
-abstract class Message{
-
-}
+abstract class Message {}

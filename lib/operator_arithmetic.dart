@@ -50,7 +50,7 @@ void main() {
   showNum(x, y);
 
   MyFunc myFunc = add(2, 1);
-  myFunc = divider(4, 1);
+  myFunc = divider(a: 1, b: 2);
 
   Map<String, dynamic> map = {"a": "map 中的 value", "b": "2", "c": "3"};
   print(map['a']);
@@ -78,7 +78,18 @@ add(int a, int b) {
   print("${a + b}");
 }
 
-divider(int a, int b) {
+void test() {
+  divider(a: 1, b: 2);
+
+  divider(b: 2);
+
+  addDivider(2);
+}
+
+//可选位置参数，必须按照位置的顺序来进行选定
+void addDivider([int c, int d]) {}
+//可选命名参数。与位置无关，可以进行指定
+divider({int a, int b}) {
   print("${a / b}");
 }
 
