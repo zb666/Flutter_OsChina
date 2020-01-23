@@ -71,11 +71,16 @@ Widget _item(String city) {
   );
 }
 
+// ignore: must_be_immutable
 class ImagePickerApp extends StatelessWidget {
+
+  List<BottomNavigationBarItem> _bottomNavList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('imagepicker')),
+      bottomNavigationBar: BottomNavigationBar(items:_bottomNavList),
     );
   }
 }
@@ -86,9 +91,11 @@ class MyRaisedNav extends StatelessWidget {
     return Center(
       child: RaisedButton(
           child: Text('Nav Start Guide'),
-          onPressed: () => {
-          Navigator.pushNamed(context, 'homePage') //context要用页面页面级别的Context，保持context一致
-      }),
+          onPressed: () =>
+          {
+            Navigator.pushNamed(context, 'homePage')
+            //context要用页面页面级别的Context，保持context一致
+          }),
     );
   }
 
