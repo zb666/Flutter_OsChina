@@ -1,5 +1,4 @@
 import 'package:flutter_osc_client/function_declaration.dart';
-import 'package:flutter_osc_client/review/%E9%97%AD%E5%8C%85%E5%92%8C%E5%8C%BF%E5%90%8D%E6%96%B9%E6%B3%95.dart';
 
 void main() {
   testFunc() {}

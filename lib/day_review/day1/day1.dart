@@ -2,7 +2,6 @@ import 'dart:core' as prefix0;
 
 import 'dart:core';
 
-import 'package:flutter_osc_client/review/%E9%97%AD%E5%8C%85%E5%92%8C%E5%8C%BF%E5%90%8D%E6%96%B9%E6%B3%95.dart';
 
 void main() {
   final varA = "VARA";
