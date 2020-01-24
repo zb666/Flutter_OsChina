@@ -19,7 +19,6 @@ class _InnerAState extends State<InnerA> {
   }
 }
 
-
 class Anim extends StatefulWidget {
   @override
   _AnimState createState() => _AnimState();
