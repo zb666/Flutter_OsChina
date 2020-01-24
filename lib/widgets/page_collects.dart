@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osc_client/widgets/HeroAnimRouteB.dart';
+import 'package:flutter_osc_client/widgets/HeroRadiusWidget.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class _SplashPageState extends State<SplashPage> {
     return Container(
         alignment: Alignment.center,
         child: InkWell(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
           onTap: () {
             Navigator.push(context, PageRouteBuilder(pageBuilder:
                 (BuildContext context, Animation<double> animation,
@@ -20,7 +22,9 @@ class _SplashPageState extends State<SplashPage> {
                   opacity: animation,
                   child: Scaffold(
                       appBar: AppBar(title: Text('原图')),
-                      body: HeroRouteAnimB()));
+                      body: HeroRadiusWidget()
+                  )
+              );
             }));
           },
           child: Hero(
